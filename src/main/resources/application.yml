@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8080
+  servlet:
+    context-path: /study
+spring:
+  profiles: dev
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/ityustudy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=round
+      username: root
+      password: 111111
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+     hibernate.hbm2ddl: auto
+logging:
+  pattern:
+    level: debug
+    file: logs/qkl.log
+---
+server:
+  port: 8081
+spring:
+   profiles: prod

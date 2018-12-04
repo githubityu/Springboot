@@ -8,10 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 public interface   StudentInfoBeanRepository extends JpaRepository<StudentInfoBean, Integer> {
-
-
     @Transactional
     @Modifying
     @Query("update StudentInfoBean set stuName =?1 where stuNum =?2")
-    public int modifyName(String stu_name,Integer stu_num);
+    int modifyName(String stu_name,Integer stu_num);
+
+
+
+
+    boolean existsByStuNum(Integer stuNum);
+
 }
